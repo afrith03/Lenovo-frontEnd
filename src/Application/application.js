@@ -30,8 +30,8 @@ function Application() {
             })
     }
     const Ectraction = () => {
-        axios.get('http://192.168.68.143:5000/api/get/fetch').
-            then((res) => {
+        axios.get('http://192.168.68.143:5000/api/get/fetch')
+        .then((res) => {
                 console.log(res.data);
             }).catch((err) => {
                 console.log(err);

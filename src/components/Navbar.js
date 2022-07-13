@@ -8,7 +8,7 @@ function Navbar() {
   <div className="container-fluid">
     <a href='/' className="navbar-brand">DaaS - New Account Setup</a>
     <form className="d-flex">
-    <img className='logo' src='./lenovo.png' alt="Logo" />
+    <img className='logo' src="./sanovo.png" alt="Logo" />
       </form>
   </div>
 </nav>
