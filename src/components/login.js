@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-function Login() {
+function Login({Token, setToken}) {
     const endpoint = 'http://192.168.68.143:5000/api/post/signin'
     const [LoginData, setLoginData] = useState({
         email:'',
@@ -23,9 +23,13 @@ function Login() {
         axios.post(endpoint, LoginData)
             .then(
                 (res) => {
-                    console.log("recieved data", res);
-                    navigate('/application')
-                }
+                    //console.log("recieved data", res);
+                   navigate('/application')
+                    // const tokenfrom = res.data.token;
+                  setToken(res.data.token) ;
+                  console.log(Token)
+
+                  }
             ).catch((err) => {
                 console.log('error', err);
             })
@@ -34,9 +38,17 @@ function Login() {
         const onSignUp = () => {
           navigate('/signin')
         }
+        useEffect(() => {
+        if (Token === "") {
+          // login page
+          navigate("/")
+          } else {
+          }
+        }, [Token, navigate]);
   return (<>
     <h1>Login - to Sanovo</h1>
     <div className="container">
+      {JSON.stringify(Token)}
   <form className="row " >
     <div className="col-md-6">
     <label htmlFor="validationCustom01" className="form-label">Email</label>

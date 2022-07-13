@@ -7,16 +7,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
 import NoPage from './components/NoPage';
 import Signin from './components/Signin';
+import { useState } from 'react';
 function App() {
+  
+  const [Token, setToken] = useState("")
   return (
     <div className="App">
 
 
 
       <BrowserRouter>
-        <Navbar />
+        <Navbar Token={Token} setToken={setToken} />
         <Routes>
-          <Route path="/" element={<Login />}/>
+          <Route path="/" element={<Login Token={Token} setToken={setToken} />}/>
           <Route path="signin" element={<Signin />} />
           <Route path="application" element={<Application />} />
           <Route path="*" element={<NoPage />} />
