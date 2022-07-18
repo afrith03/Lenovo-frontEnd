@@ -15,7 +15,7 @@ function Navbar({ Token, setToken }) {
   }
   useEffect(() => {
     if (Token === "") {
-      navigate("/")
+      navigate("/signin")
     }
   }, [Token, navigate]);
   return (

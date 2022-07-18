@@ -9,9 +9,11 @@ function Signin() {
         password:'',
         name:'',
         phone:'',
-        country:''
+        country:'',
+        role:""
     });
     let navigate = useNavigate()
+
     function handleChange(evt) {
         const value = evt.target.value;
         setSigninData({
@@ -71,6 +73,17 @@ function Signin() {
     <div className="valid-feedback">
       Looks good!
     </div></div>
+   <div className="col-md-6">
+  <label htmlFor="validationServer04" className="form-label">Role</label>
+  <select className="form-select" name="role" value={SigninData.role} onChange={handleChange} aria-describedby="validationServer04Feedback" required>
+    <option disabled>Choose a role</option>
+  <option value="Customer">Customer</option>
+  <option value="SMO/TMO">SMO/TMO</option>
+  </select>
+  <div id="validationServer04Feedback" className="invalid-feedback">
+    Please select a valid Role.
+  </div>
+</div>
 
 
  <button onClick={Signin} className="btn btn-success my-1">Sign-in</button>
